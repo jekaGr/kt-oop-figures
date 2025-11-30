@@ -12,6 +12,10 @@ private const val MAX_DIMENSION = 10
 private const val FIGURE_TYPES = 5
 private const val DEFAULT_RADIUS = 10.0
 private const val RANGE_START = 1
+private const val TYPE_SQUARE = 1
+private const val TYPE_RECTANGLE = 2
+private const val TYPE_TRIANGLE = 3
+private const val TYPE_CIRCLE = 4
 
 class FigureSupplier(
     private val colorSupplier: ColorSupplier = ColorSupplier()
@@ -21,18 +25,18 @@ class FigureSupplier(
         val color = colorSupplier.getRandomColor()
 
         return when ((RANGE_START..FIGURE_TYPES).random()) {
-            1 -> Square((RANGE_START..MAX_DIMENSION).random().toDouble(), color)
-            2 -> Rectangle(
+            TYPE_SQUARE -> Square((RANGE_START..MAX_DIMENSION).random().toDouble(), color)
+            TYPE_RECTANGLE -> Rectangle(
                 (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 color
             )
-            3 -> RightTriangle(
+            TYPE_TRIANGLE -> RightTriangle(
                 (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 color
             )
-            4 -> Circle((RANGE_START..MAX_DIMENSION).random().toDouble(), color)
+            TYPE_CIRCLE -> Circle((RANGE_START..MAX_DIMENSION).random().toDouble(), color)
             else -> IsoscelesTrapezoid(
                 (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 (RANGE_START..MAX_DIMENSION).random().toDouble(),
