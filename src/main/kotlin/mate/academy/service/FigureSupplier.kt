@@ -11,6 +11,7 @@ import mate.academy.model.Square
 private const val MAX_DIMENSION = 10
 private const val FIGURE_TYPES = 5
 private const val DEFAULT_RADIUS = 10.0
+private const val RANGE_START = 1
 
 class FigureSupplier(
     private val colorSupplier: ColorSupplier = ColorSupplier()
@@ -19,23 +20,23 @@ class FigureSupplier(
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
 
-        return when ((1..FIGURE_TYPES).random()) {
-            1 -> Square((1..MAX_DIMENSION).random().toDouble(), color)
+        return when ((RANGE_START..FIGURE_TYPES).random()) {
+            1 -> Square((RANGE_START..MAX_DIMENSION).random().toDouble(), color)
             2 -> Rectangle(
-                (1..MAX_DIMENSION).random().toDouble(),
-                (1..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 color
             )
             3 -> RightTriangle(
-                (1..MAX_DIMENSION).random().toDouble(),
-                (1..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 color
             )
-            4 -> Circle((1..MAX_DIMENSION).random().toDouble(), color)
+            4 -> Circle((RANGE_START..MAX_DIMENSION).random().toDouble(), color)
             else -> IsoscelesTrapezoid(
-                (1..MAX_DIMENSION).random().toDouble(),
-                (1..MAX_DIMENSION).random().toDouble(),
-                (1..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
+                (RANGE_START..MAX_DIMENSION).random().toDouble(),
                 color
             )
         }
