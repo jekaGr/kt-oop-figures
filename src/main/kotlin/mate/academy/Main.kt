@@ -5,17 +5,19 @@ import mate.academy.model.Color
 import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
 
+private const val ARRAY_SIZE = 6
+
 fun main() {
-    val size = 6
-    val figures = Array<Figure>(size) { Circle(1.0, Color.BLACK) }
+
+    val figures = Array<Figure>(ARRAY_SIZE) { Circle(1.0, Color.BLACK) }
 
     val supplier = FigureSupplier()
 
-    for (i in 0 until size / 2) {
+    for (i in 0 until ARRAY_SIZE / 2) {
         figures[i] = supplier.getRandomFigure()
     }
 
-    for (i in size / 2 until size) {
+    for (i in ARRAY_SIZE / 2 until ARRAY_SIZE) {
         figures[i] = supplier.getDefaultFigure()
     }
 
